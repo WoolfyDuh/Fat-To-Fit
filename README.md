@@ -1,2 +1,2 @@
 # Fat-To-Fit
-AR Game project with Fireguy 
+AR Kick box training system ft. Robin van den Bor
