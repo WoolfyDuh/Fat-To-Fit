@@ -7,7 +7,7 @@ public class ObjectPooling : MonoBehaviour
     public static ObjectPooling SharedPool;
     private List<GameObject> pooledBalls;
     [SerializeField] private GameObject ballToPool;
-    [SerializeField] private int amountToPool = 0;
+    [SerializeField] [Range(0,50)] private int amountToPool = 0;
 
     //set pooler to never disappear
     void Awake()
@@ -36,5 +36,9 @@ public class ObjectPooling : MonoBehaviour
                 return pooledBalls[i];
 		}
         return null;
+	}
+    public int getBalls()
+	{
+        return amountToPool;
 	}
 }
