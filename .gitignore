@@ -56,5 +56,13 @@ sysinfo.txt
 *.unitypackage
 
 # Crashlytics generated file
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 crashlytics-build.properties
 
+=======
+crashlytics-build.properties
+>>>>>>> Stashed changes
+=======
+crashlytics-build.properties
+>>>>>>> Stashed changes
