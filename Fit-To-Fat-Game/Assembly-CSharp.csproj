@@ -60,8 +60,8 @@
     <Compile Include="Assets\scripts\BallSpawner.cs" />
     <Compile Include="Assets\scripts\DeactivateBall.cs" />
     <Compile Include="Assets\scripts\ObjectPooling.cs" />
+    <Compile Include="Assets\scripts\shrinkingcircle.cs" />
     <Compile Include="Assets\scripts\IDeactivatable.cs" />
-    <Compile Include="Assets\shrinkingcircle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

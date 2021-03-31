@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class shrinkingcircle : MonoBehaviour
 {
-    private float time = 5f;
-	Vector2 startScale = new Vector2(2, 2);
+    private float duration = 5f;
+	Vector2 startScale = new Vector2(2f, 2f);
+	Vector2 endScale = new Vector2(1f, 1f);
     private Transform tr;
 	bool isActive = false;
 
@@ -29,14 +30,16 @@ public class shrinkingcircle : MonoBehaviour
 
 	IEnumerator Shrink()
 	{
-		for(int i = 0; i < time; i++)
+		float time = 0;
+		tr.localScale = startScale;
+		while(time < duration)
 		{
-			Vector2 minus = new Vector2((0.2f * i), (0.2f * i));
-			Vector2 result = startScale - minus;
-			Vector2 newScale = result;
-			tr.localScale = newScale;
-			yield return new WaitForSeconds(0.8f);
+		tr.localScale = Vector2.Lerp(startScale, endScale, time / duration);
+			time += Time.deltaTime;
+			yield return null;
 		}
+		tr.localScale = endScale;
+
 		Disappear();
 	}
 
