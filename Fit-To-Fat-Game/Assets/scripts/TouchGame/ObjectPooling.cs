@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectPooling : MonoBehaviour
 {
     public static ObjectPooling SharedPool;
     private List<GameObject> pooledBalls;
     [SerializeField] private GameObject ballToPool;
+   // [SerializeField] private GameObject canvas;
     [SerializeField] [Range(0,50)] private int amountToPool = 0;
 
     //set pooler to never disappear
@@ -22,6 +24,8 @@ public class ObjectPooling : MonoBehaviour
         for(int i = 0; i < amountToPool; i++)
 		{
             ball = Instantiate(ballToPool);
+            // ball.transform.SetParent(canvas.transform);
+            ball.name = "ball nr: " + i;
             ball.SetActive(false);
             pooledBalls.Add(ball);
 		}

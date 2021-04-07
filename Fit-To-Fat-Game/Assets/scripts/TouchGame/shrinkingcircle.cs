@@ -39,14 +39,10 @@ public class shrinkingcircle : MonoBehaviour
 			yield return null;
 		}
 		tr.localScale = endScale;
-
-		Disappear();
 	}
 
-	void Disappear()
+	public void Refresh()
 	{
-		StopCoroutine(Shrink());
 		isActive = false;
-		gameObject.SetActive(false);
 	}
 }

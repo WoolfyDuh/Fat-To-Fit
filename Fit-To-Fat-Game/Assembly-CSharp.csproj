@@ -60,11 +60,10 @@
     <Compile Include="Assets\scripts\TouchGame\BallSpawner.cs" />
     <Compile Include="Assets\scripts\TouchGame\AddToMeter.cs" />
     <Compile Include="Assets\scripts\TouchGame\DeactivateBall.cs" />
+    <Compile Include="Assets\scripts\ui\BarManager.cs" />
     <Compile Include="Assets\scripts\ui\ExcitementBar.cs" />
     <Compile Include="Assets\scripts\TouchGame\ObjectPooling.cs" />
     <Compile Include="Assets\scripts\TouchGame\shrinkingcircle.cs" />
-    <Compile Include="Assets\scripts\TouchGame\IDeactivatable.cs" />
-    <Compile Include="Assets\scripts\ui\BarManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

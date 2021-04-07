@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AddToMeter : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class AddToMeter : MonoBehaviour
 		bar = GameObject.FindObjectOfType<ExcitementBar>();
 	}
 	//do the thing to the meter 
- 	private void OnMouseDown()
+ 	public void ClickToFillMeter()
 	{
         Debug.Log("I got clicked");
 		bar.FillMeter(amountToFill);

@@ -26,7 +26,7 @@ public class MouseController: MonoBehaviour
 
         if (hit.collider != null)
         {
-            hit.collider.GetComponent<IDeactivateable>().ReturnToPool();
+            hit.collider.GetComponent<DeactivateBall>().ReturnToPool();
         }
     }
 }

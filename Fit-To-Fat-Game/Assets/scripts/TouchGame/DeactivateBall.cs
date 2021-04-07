@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeactivateBall : MonoBehaviour, IDeactivateable
+public class DeactivateBall : MonoBehaviour
 {
 	private void Update()
 	{
@@ -17,7 +17,9 @@ public class DeactivateBall : MonoBehaviour, IDeactivateable
 
 	IEnumerator TimeToDeactivate()
 	{
+		//gameObject.transform.localScale = new Vector3(50, 50, 1) ;
 		yield return new WaitForSeconds(5);
+		gameObject.transform.SetParent(null);
 		gameObject.SetActive(false);
 	}
 }

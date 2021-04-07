@@ -26,7 +26,7 @@ public class ExcitementBar : MonoBehaviour
     {
 		if (slider.value > slider.minValue)
 			slider.value -= decayRate;
-		else
+		else if(slider.value <= 0)
 			emptyMeterCallback();
 		
     }
@@ -37,8 +37,8 @@ public class ExcitementBar : MonoBehaviour
 	public void FillMeter(float amount) => slider.value += amount;
 	public void OnMeterEmpty(Action callback)
 	{
-		Debug.Log("I GOT CALLED");
 		emptyMeterCallback += callback;
+		Debug.Log("I GOT CALLED");
 	}
 	/// <summary>
 	///  set the max value of the excitement meter based on amount
