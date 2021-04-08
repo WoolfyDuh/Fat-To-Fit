@@ -30,6 +30,5 @@ public class BallSpawner : MonoBehaviour
         RandPos.y = Random.Range(10f, Screen.height - 140f);
         ball.transform.position = RandPos;
         ball.SetActive(true);
-        Debug.Log("MY NAME IS:  " +ball.name +" AND MY POSITION IS: " + ball.transform.position);
     }
 }

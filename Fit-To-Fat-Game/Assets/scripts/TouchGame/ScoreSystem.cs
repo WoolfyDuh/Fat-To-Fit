@@ -6,6 +6,7 @@ using System;
 
 public class ScoreSystem : MonoBehaviour
 {
+    private Action scoreCallback;
     private float score = 0f;
 
     // Start is called before the first frame update
@@ -18,10 +19,12 @@ public class ScoreSystem : MonoBehaviour
     public void AddScore(float amount)
 	{
         score += amount;
-        Debug.Log("Your Score: " + score + "!!!!!");
+        scoreCallback();
 	}
-    public void ResetScore()
+    public float GetScore()
 	{
-        score = 0;
+        return score;
 	}
+    public void AddFuncToScoreCallback(Action callback) => scoreCallback += callback;
+    public void ResetScore() => score = 0;
 }
