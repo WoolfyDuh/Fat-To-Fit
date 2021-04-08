@@ -7,7 +7,8 @@ public class ExcitementBar : MonoBehaviour
 {
     private Slider slider;
 	private Action emptyMeterCallback;
-	private float decayRate = 0.2f;
+	private bool hasBeenCalled = false;
+	private float decayRate = 0.35f;
 	private float maxExcitement = 1000;
 	// Start is called before the first frame update
 	private void Awake()
@@ -26,19 +27,24 @@ public class ExcitementBar : MonoBehaviour
     {
 		if (slider.value > slider.minValue)
 			slider.value -= decayRate;
-		else if(slider.value <= 0)
+		else if(slider.value <= 0 && !hasBeenCalled)
 			emptyMeterCallback();
 		
     }
 
 	#region public functions
 	public void SetDecayRate(int amount) => decayRate = amount;
-	public void RefillMeter() => slider.value = maxExcitement;
+	public void RefillMeter()
+	{
+		slider.value = maxExcitement;
+		hasBeenCalled = false; 
+	}
 	public void FillMeter(float amount) => slider.value += amount;
 	public void OnMeterEmpty(Action callback)
 	{
 		emptyMeterCallback += callback;
-		Debug.Log("I GOT CALLED");
+		hasBeenCalled = true;
+		Debug.Log("Function added to callback");
 	}
 	/// <summary>
 	///  set the max value of the excitement meter based on amount

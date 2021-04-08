@@ -25,7 +25,6 @@ public class shrinkingcircle : MonoBehaviour
 			StartCoroutine(Shrink());
 		}
 
-
     }
 
 	IEnumerator Shrink()

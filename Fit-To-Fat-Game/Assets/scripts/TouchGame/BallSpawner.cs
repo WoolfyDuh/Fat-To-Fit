@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class BallSpawner : MonoBehaviour
 {
-    [SerializeField] private float spawnrate = 1f;
+    [SerializeField] private float spawnRate = 1f;
     [SerializeField] private float nextTimeToSpawn;
+    [SerializeField] private float spawnFrequency = 0.5f;
     [SerializeField] private GameObject canvas;
+    private Vector3 RandPos = new Vector3(0, 0, 1);
     // Start is called before the first frame update
 
     // Update is called once per frame
     void Update()
     {
-        if(Time.time >= nextTimeToSpawn)
+        if(Time.time >= nextTimeToSpawn) 
 		{
             SpawnBalls();
-            nextTimeToSpawn = Time.time + 0.5f / spawnrate;
+            nextTimeToSpawn = Time.time + spawnFrequency / spawnRate;
+            
 		}
     }
 
@@ -23,8 +26,10 @@ public class BallSpawner : MonoBehaviour
     {
         GameObject ball = ObjectPooling.SharedPool.GetPooledBall();
         ball.transform.SetParent(canvas.transform, false);
-        ball.transform.position = new Vector3(Random.Range(0, Screen.width), Random.Range(0, Screen.height), -1);
+        RandPos.x = Random.Range(20f, Screen.width - 20f);
+        RandPos.y = Random.Range(10f, Screen.height - 140f);
+        ball.transform.position = RandPos;
         ball.SetActive(true);
-        Debug.Log("I GOT CALLLED AND MY POSITION IS: " + ball.transform.position);
+        Debug.Log("MY NAME IS:  " +ball.name +" AND MY POSITION IS: " + ball.transform.position);
     }
 }
