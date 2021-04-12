@@ -14,7 +14,6 @@ public class AddToMeter : MonoBehaviour
 	//do the thing to the meter 
  	public void ClickToFillMeter()
 	{
-        Debug.Log("I got clicked");
 		bar.FillMeter(amountToFill);
 	}
 }

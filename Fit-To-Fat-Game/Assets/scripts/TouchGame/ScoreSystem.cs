@@ -6,25 +6,27 @@ using System;
 
 public class ScoreSystem : MonoBehaviour
 {
-    private Action scoreCallback;
-    private float score = 0f;
+    public static ScoreSystem Instance { get; private set; }
+    public float score { get; private set; } = 0f;
+    public float misses { get; private set; } = 0f;
 
-    // Start is called before the first frame update
-    void Start()
+	private void Awake()
+	{
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+	}
+	// Start is called before the first frame update
+	void Start()
     {
         ResetScore();
+        ResetMisses();
     }
-
-  
-    public void AddScore(float amount)
-	{
-        score += amount;
-        scoreCallback();
-	}
-    public float GetScore()
-	{
-        return score;
-	}
-    public void AddFuncToScoreCallback(Action callback) => scoreCallback += callback;
+  //setters
+    public void AddScore(float amount) => score += amount;
+    public void AddMisses(float amount) => misses += amount;
+    //other useful functions
     public void ResetScore() => score = 0;
+    public void ResetMisses() => misses = 0; 
 }

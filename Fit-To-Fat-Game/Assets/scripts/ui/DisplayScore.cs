@@ -4,22 +4,22 @@ using UnityEngine;
 using TMPro;
 public class DisplayScore : MonoBehaviour
 {
-	ScoreSystem scoreSystem;
 	TextMeshProUGUI tmpUI;
-
+	[SerializeField] float time = 0.1f;
 	private void Awake()
 	{
-		scoreSystem = GameObject.FindObjectOfType<ScoreSystem>();
 		tmpUI = gameObject.GetComponent<TextMeshProUGUI>();
 	}
-	private void Start()
+	private void Update()
 	{
-		scoreSystem.AddFuncToScoreCallback(UpdateScoreDisplay);
-		UpdateScoreDisplay();
+		Invoke("UpdateScoreDisplay", time);
 	}
 
 	void UpdateScoreDisplay()
 	{
-		tmpUI.SetText("Score: " + scoreSystem.GetScore());
+		tmpUI.SetText(
+			"Score: " + ScoreSystem.Instance.score +
+			"\n Misses: " + ScoreSystem.Instance.misses
+			 ) ;
 	}
 }

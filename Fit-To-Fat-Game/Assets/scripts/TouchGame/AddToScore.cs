@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class AddToScore : MonoBehaviour
 {
-    ScoreSystem scoreSystem;
-
+	DeactivateBall deactivateBall;
 	private void Awake()
 	{
-		scoreSystem = GameObject.FindObjectOfType<ScoreSystem>();
+		deactivateBall = gameObject.GetComponent<DeactivateBall>();
+		deactivateBall.AddToDisableCallback(AddMisses);
 	}
-	
 	public void AddScore()
 	{
-		scoreSystem.AddScore(10f);
+		ScoreSystem.Instance.AddScore(10f);
+	}
+	
+	public void AddMisses()
+	{
+		ScoreSystem.Instance.AddMisses(1f);
 	}
 }

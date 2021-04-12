@@ -1,25 +1,33 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class DeactivateBall : MonoBehaviour
 {
+	bool hasRun = false;
+	Action OnBallDisable;
 	private void Update()
 	{
-		if (gameObject.activeSelf)
+		if (gameObject.activeSelf && !hasRun)
+		{
 			StartCoroutine(TimeToDeactivate());
+			hasRun = true;
+		}
 	}
-	public void ReturnToPool()
+	 void ReturnToPool()
 	{
 		StopCoroutine(TimeToDeactivate());
+		gameObject.transform.SetParent(null);
+		hasRun = false;
 		gameObject.SetActive(false);
 	}
 
+	public void AddToDisableCallback(Action callback) => OnBallDisable += callback;
 	IEnumerator TimeToDeactivate()
 	{
-		//gameObject.transform.localScale = new Vector3(50, 50, 1) ;
 		yield return new WaitForSeconds(5);
-		gameObject.transform.SetParent(null);
-		gameObject.SetActive(false);
+		OnBallDisable();
+		ReturnToPool();
 	}
 }

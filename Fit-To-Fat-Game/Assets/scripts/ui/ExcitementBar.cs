@@ -29,7 +29,6 @@ public class ExcitementBar : MonoBehaviour
 			slider.value -= decayRate;
 		else if(slider.value <= 0 && !hasBeenCalled)
 			emptyMeterCallback();
-		
     }
 
 	#region public functions
@@ -40,11 +39,15 @@ public class ExcitementBar : MonoBehaviour
 		hasBeenCalled = false; 
 	}
 	public void FillMeter(float amount) => slider.value += amount;
+	/// <summary>
+	/// adds function to action for callback when meter is empty
+	/// </summary>
+	/// <param name="callback"></param>
 	public void OnMeterEmpty(Action callback)
 	{
 		emptyMeterCallback += callback;
 		hasBeenCalled = true;
-		Debug.Log("Function added to callback");
+		Debug.Log(callback + "Function added to Meter callback");
 	}
 	/// <summary>
 	///  set the max value of the excitement meter based on amount
