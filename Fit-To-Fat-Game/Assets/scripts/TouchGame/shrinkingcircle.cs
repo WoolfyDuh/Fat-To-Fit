@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class shrinkingcircle : MonoBehaviour
 {
 	DeactivateBall deactivateBall;
-  [SerializeField] [Range(1f,10f)] private float duration = 5f;
+  [SerializeField] private float duration = 3f;
 	Vector2 startScale = new Vector2(2f, 2f);
 	Vector2 endScale = new Vector2(1f, 1f);
 	bool isActive = false;

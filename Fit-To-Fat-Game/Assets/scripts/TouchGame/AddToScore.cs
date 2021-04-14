@@ -5,6 +5,7 @@ using UnityEngine;
 public class AddToScore : MonoBehaviour
 {
 	DeactivateBall deactivateBall;
+	[SerializeField] private float amountOfScoreToAdd = 1f;
 	private void Awake()
 	{
 		deactivateBall = gameObject.GetComponent<DeactivateBall>();
@@ -12,7 +13,7 @@ public class AddToScore : MonoBehaviour
 	}
 	public void AddScore()
 	{
-		ScoreSystem.Instance.AddScore(10f);
+		ScoreSystem.Instance.AddScore(amountOfScoreToAdd);
 	}
 	
 	public void AddMisses()

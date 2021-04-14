@@ -8,11 +8,13 @@ public class ExcitementBar : MonoBehaviour
     private Slider slider;
 	private Action emptyMeterCallback;
 	private bool hasBeenCalled = false;
-	private float decayRate = 0.35f;
-	private float maxExcitement = 1000;
-	// Start is called before the first frame update
+	private float decayRate = 0.8f;
+	private float maxExcitement = 1000f;
+	private bool isPaused = true;
+
 	private void Awake()
 	{
+		hasBeenCalled = false;
 		slider = GetComponent<Slider>();
 	}
 
@@ -25,14 +27,14 @@ public class ExcitementBar : MonoBehaviour
 	// Update is called once per frame
 	void LateUpdate()
     {
-		if (slider.value > slider.minValue)
+		if (slider.value > slider.minValue && !isPaused)
 			slider.value -= decayRate;
 		else if(slider.value <= 0 && !hasBeenCalled)
 			emptyMeterCallback();
     }
 
 	#region public functions
-	public void SetDecayRate(int amount) => decayRate = amount;
+	public void SetDecayRate(float amount) => decayRate = amount;
 	public void RefillMeter()
 	{
 		slider.value = maxExcitement;
@@ -47,13 +49,12 @@ public class ExcitementBar : MonoBehaviour
 	{
 		emptyMeterCallback += callback;
 		hasBeenCalled = true;
-		Debug.Log(callback + "Function added to Meter callback");
 	}
 	/// <summary>
 	///  set the max value of the excitement meter based on amount
 	/// </summary>
 	/// <param name="amount"></param>
-	public void SetMaxExcitement(int amount)
+	public void SetMaxExcitement(float amount)
 	{
 		maxExcitement = amount;
 		slider.maxValue = maxExcitement;
@@ -69,5 +70,7 @@ public class ExcitementBar : MonoBehaviour
 		slider.maxValue = maxExcitement;
 		RefillMeter();
 	}
-#endregion
+	public void IsPaused(bool choice) => isPaused = choice;
+
+	#endregion
 }
