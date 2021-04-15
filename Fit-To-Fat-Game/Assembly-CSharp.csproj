@@ -61,14 +61,15 @@
     <Compile Include="Assets\scripts\TouchGame\BallSpawner.cs" />
     <Compile Include="Assets\scripts\TouchGame\AddToMeter.cs" />
     <Compile Include="Assets\scripts\TouchGame\DeactivateBall.cs" />
+    <Compile Include="Assets\scripts\ui\SetNameInHighScore.cs" />
     <Compile Include="Assets\scripts\ui\GameManager.cs" />
     <Compile Include="Assets\scripts\ui\ExcitementBar.cs" />
     <Compile Include="Assets\scripts\TouchGame\ObjectPooling.cs" />
     <Compile Include="Assets\scripts\TouchGame\AddToScore.cs" />
     <Compile Include="Assets\scripts\TouchGame\shrinkingcircle.cs" />
     <Compile Include="Assets\scripts\ui\HighScoreSystem.cs" />
-    <Compile Include="Assets\scripts\ui\SetNameInHighScore.cs" />
     <Compile Include="Assets\scripts\TouchGame\ChangeScene.cs" />
+    <Compile Include="Assets\DisplayHighScoreList.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

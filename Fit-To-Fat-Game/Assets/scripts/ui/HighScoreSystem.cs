@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HighScoreSystem : MonoBehaviour
 {
-	public static HighScoreSystem Instance { get; private set; }		
+	public static HighScoreSystem Instance { get; private set; }
 	private static HighScoreData highScoreData = new HighScoreData();
 	private static string dataAsString;
 
@@ -40,7 +40,18 @@ public class HighScoreSystem : MonoBehaviour
 		
 		return json;
 	}
-	
+	public string GetHighScorePlayerName(int index)
+	{
+		return highScoreData.PlayerNamesList[index];
+	}
+	public float GetHighScorePlayerScore(int index)
+	{
+		return highScoreData.PlayerScoresList[index];
+	}
+	public float GetHighScorePlayerMiss(int index)
+	{
+		return highScoreData.PlayerMissesList[index];
+	}
 	public void UpdateHighscoreOrdered(float score, float misses, string name)
 	{
 		highScoreData = JsonUtility.FromJson<HighScoreData>(dataAsString);

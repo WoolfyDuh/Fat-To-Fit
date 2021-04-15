@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverCanvas;
     [SerializeField] private GameObject gameCanvas;
 
-      private float setDecay = 1f;
-      private float setExcitement = 10000f;
+      private float setDecay = 10f;
+      private float setExcitement = 100000f; 
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
         bar.IsPaused(false);
         spawner.IsSpawning(true);
-        spawner.SetSpawnRate(1f, 0.5f);
+        spawner.SetSpawnRate(0.05f, 0.5f);
         bar.SetDecayRate(setDecay);
         bar.SetMaxExcitement(setExcitement, true);
     }
@@ -39,13 +39,13 @@ public class GameManager : MonoBehaviour
 	{
 		switch (ScoreSystem.Instance.score)
 		{
-			case 10:
+			case 100:
                 bar.SetMaxExcitement(500f);
                 bar.SetDecayRate(0.35f);
                 spawner.SetSpawnRate(0.8f, 1.8f);
                 break;
 
-            case 50:
+            case 500:
                 bar.SetMaxExcitement(250f, true);
                 bar.SetDecayRate(0.15f);
                 break;
