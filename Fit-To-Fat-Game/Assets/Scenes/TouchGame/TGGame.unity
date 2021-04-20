@@ -1461,7 +1461,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
       - m_Target: {fileID: 1354545588}
         m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
         m_MethodName: ChangeCurrentScene
@@ -1473,7 +1473,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: TGGameOver
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!114 &1343623324
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637527762978732382
+      ticks: 637540825909623054
     m_Hash: 68374427
   m_LockFileStatus:
     m_FilePath: D:/bewijzenmap/stage1/ARGAME/Fat-To-Fit/Fit-To-Fat-Game/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637527784307329838
+      ticks: 637540837422199597
     m_Hash: 3563922026
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
